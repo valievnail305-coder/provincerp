@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVINC RP — Проект в разработке</title>
+    <style>
+        /* ОБЩИЕ СТИЛИ (Темно-серый фон) */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121316; 
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ШАПКА САЙТА */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #1a1c23; 
+            border-bottom: 3px solid #8b0000; 
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.3);
+        }
+        .logo {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .logo span { color: #ff2a2a; }
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #ff2a2a; }
+
+        /* ГЛАВНЫЙ БАННЕР (HERO) */
+        .hero {
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, rgba(139, 0, 0, 0.15) 0%, rgba(0,0,0,0) 75%);
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px #000, 0 0 30px rgba(139, 0, 0, 0.5);
+        }
+        .hero h1 span { color: #ff2a2a; }
+        .badge-dev {
+            background: #8b0000;
+            color: #fff;
+            padding: 5px 15px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+        }
+        .hero p {
+            font-family: Arial, sans-serif;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 650px;
+            margin: 0 0 40px 0;
+            line-height: 1.5;
+        }
+        .btn-br {
+            display: inline-block;
+            padding: 22px 70px;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #660000, #8b0000); 
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+            border: 2px solid #8b0000;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-br:hover { 
+            transform: scale(1.05); 
+            box-shadow: 0 0 40px rgba(139, 0, 0, 0.9);
+        }
+
+        /* ЗАГОЛОВКИ СЕКЦИЙ */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            margin: 60px 0 30px 0;
+            text-shadow: 2px 2px 0px #000;
+        }
+        .section-title span { color: #8b0000; }
+
+        /* СЕРВЕРЫ */
+        .servers {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .server-card {
+            background: #1a1c23; 
+            border: 2px solid #282c37;
+            border-left: 6px solid #8b0000;
+            padding: 25px 45px;
+            border-radius: 15px;
+            min-width: 220px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .server-name { font-size: 1.4rem; margin-bottom: 5px; }
+        .server-online { font-family: Arial, sans-serif; color: #ffaa00; font-weight: bold; font-size: 1rem; }
+
+        /* ШАГИ ИГРЫ (Оформленный блок) */
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .step-card {
+            background: #1a1c23;
+            border: 2px solid #282c37;
+            padding: 30px;
+            border-radius: 20px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .step-card:hover { transform: translateY(-5px); border-color: #ff2a2a; }
+        .step-num { font-size: 3.5rem; color: #8b0000; margin-bottom: 10px; }
+        .step-title { font-size: 1.5rem; text-transform: uppercase; margin-bottom: 12px; }
+        .step-text { font-family: Arial, sans-serif; color: #b3b3b3; font-size: 1rem; line-height: 1.5; }
+
+        /* СОЦСЕТИ (В стиле темно-красного проекта) */
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-bottom: 70px;
+            flex-wrap: wrap;
+        }
+        .btn-soc {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: #fff;
+            padding: 18px 45px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background-color 0.2s;
+            min-width: 180px;
+            text-align: center;
+        }
+        .btn-soc:hover { transform: translateY(-3px); }
+        .vk { background: #520000; border-bottom: 4px solid #330000; }
+        .vk:hover { background: #660000; }
+        .tg { background: #8b0000; border-bottom: 4px solid #520000; }
+        .tg:hover { background: #a30000; }
+
+        /* ПОДВАЛ */
+        footer {
+            background: #0d0e11;
+            padding: 35px 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #556070;
+            font-size: 0.9rem;
+        }
+
+        /* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; justify-content: center; }
+            nav { display: none; }
+            .hero h1 { font-size: 2.6rem; }
+            .hero p { font-size: 1rem; }
+            .btn-br { width: 85%; padding: 15px 0; font-size: 1.3rem; text-align: center; }
+            .socials { flex-direction: column; align-items: center; width: 100%; box-sizing: border-box; }
+            .btn-soc { width: 85%; text-align: center; padding: 15px 0; }
+            .server-card, .step-card { width: 100%; max-width: 320px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- НАВИГАЦИЯ -->
+    <header>
+        <div class="logo">PROVINC<span>RP</span></div>
+        <nav>
+            <a href="#servers">Серверы</a>
+            <a href="#steps">Как играть</a>
+            <a href="#socials">Соцсети</a>
+        </nav>
+    </header>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <div class="hero">
+        <div class="badge-dev">Разработка игры</div>
+        <h1>PROVINCIA <span>ROLEPLAY</span></h1>
+        <p>Добро пожаловать в мир Провинции! Уникальная карта, детальный общественный транспорт, легендарный отечественный и зарубежный автопром. Устройся в ЖБК, рули трамваем или построй свою бизнес-империю.</p>
+        <a href="https://t.me" target="_blank" class="btn-br">Войти в Telegram</a>
+    </div>
+
+    <!-- МОНИТОРИНГ СЕРВЕРОВ -->
+    <div id="servers" class="section-title">Статус <span>серверов</span></div>
+    <div class="servers">
+        <div class="server-card"><div class="server-name">SERVER 01 | КАЗАНЬ</div><div class="server-online">Разработка</div></div>
+        <div class="server-card" style="border-left-color: #b30000;"><div class="server-name">SERVER 02 | МОСКВА</div><div class="server-online">Закрытый тест</div></div>
+        <div class="server-card" style="border-left-color: #ff2a2a;"><div class="server-name">SERVER 03 | САНКТ-ПЕТЕРБУРГ</div><div class="server-online">Оптимизация карт</div></div>
+    </div>
+
+    <!-- ИНСТРУКЦИЯ ИГРЫ -->
+    <div id="steps" class="section-title">Как начать <span>играть</span></div>
+    <div class="steps">
+        <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-title">Лаунчер</div>
+            <div class="step-text">Скачайте фирменный лаунчер проекта для автоматической установки всех файлов.</div>
+        </div>
+        <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-title">Установка</div>
+            <div class="step-text">Запустите загруженный файл, он сам скачает игру .</div>
+        </div>
+        <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-title">В бой!</div>
+            <div class="step-text">Зарегистрируйте аккаунт, придумайте свой RP-ник, выбирайте сервер и заходите в игру.</div>
+        </div>
+    </div>
+
+    <!-- СОЦИАЛЬНЫЕ СЕТИ -->
+    <div id="socials" class="section-title">Наши <span>соцсети</span></div>
+    <div class="socials">
+        <a href="#" class="btn-soc vk">Группа ВКонтакте</a>
+        <a href="https://t.me" target="_blank" class="btn-soc tg">Наш Telegram</a>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        &copy; 2026 PROVINC RP. Все права защищены. Разработка сайта под MTA Province.
+    </footer>
+
+</body>
+</html>
